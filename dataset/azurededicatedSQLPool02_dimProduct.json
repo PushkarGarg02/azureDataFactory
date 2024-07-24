@@ -1,0 +1,17 @@
+{
+    "name": "azurededicatedSQLPool02_dimProduct",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azurededicatedSQLPool02_LS",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlDWTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "dbo",
+            "table": "dimProduct"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

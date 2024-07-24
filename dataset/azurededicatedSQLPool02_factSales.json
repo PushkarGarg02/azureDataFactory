@@ -1,0 +1,17 @@
+{
+    "name": "azurededicatedSQLPool02_factSales",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azurededicatedSQLPool02_LS",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlDWTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "dbo",
+            "table": "factSales"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

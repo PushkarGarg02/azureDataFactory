@@ -1,0 +1,70 @@
+{
+    "name": "03-Pipeline-DatawareHouse",
+    "properties": {
+        "activities": [
+            {
+                "name": "01-DataFlow-DatawareHouse",
+                "type": "ExecuteDataFlow",
+                "dependsOn": [
+                    {
+                        "activity": "StoredProcedure_ClearTables",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "dataflow": {
+                        "referenceName": "01_DataFlow_To_Warehouse",
+                        "type": "DataFlowReference"
+                    },
+                    "staging": {
+                        "linkedService": {
+                            "referenceName": "azureBlobStorage_LS",
+                            "type": "LinkedServiceReference"
+                        },
+                        "folderPath": "staging"
+                    },
+                    "compute": {
+                        "coreCount": 8,
+                        "computeType": "General"
+                    },
+                    "traceLevel": "Fine"
+                }
+            },
+            {
+                "name": "StoredProcedure_ClearTables",
+                "type": "SqlServerStoredProcedure",
+                "state": "Inactive",
+                "onInactiveMarkAs": "Succeeded",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "[dbo].[ClearTables]"
+                },
+                "linkedServiceName": {
+                    "referenceName": "azurededicatedSQLPool02_LS",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2024-07-20T11:45:08Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
