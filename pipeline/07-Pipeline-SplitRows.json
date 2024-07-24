@@ -1,0 +1,41 @@
+{
+    "name": "07-Pipeline-SplitRows",
+    "properties": {
+        "activities": [
+            {
+                "name": "01-ActivityDataPool",
+                "type": "ExecuteDataFlow",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "dataflow": {
+                        "referenceName": "05_DataFlow_ExtractResourceGroup",
+                        "type": "DataFlowReference"
+                    },
+                    "staging": {
+                        "linkedService": {
+                            "referenceName": "azureBlobStorage_LS",
+                            "type": "LinkedServiceReference"
+                        },
+                        "folderPath": "staging"
+                    },
+                    "compute": {
+                        "coreCount": 8,
+                        "computeType": "General"
+                    },
+                    "traceLevel": "Fine"
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2024-07-20T23:10:55Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

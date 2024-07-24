@@ -1,0 +1,29 @@
+{
+    "name": "azureDataStorage_logdatafile",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorage_LS",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": "u_ex240720.log",
+                "fileSystem": "logs"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "name": "#Software: Microsoft Internet Information Services 10.0",
+                "type": "String"
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

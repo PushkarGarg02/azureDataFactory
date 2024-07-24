@@ -1,0 +1,41 @@
+{
+    "name": "05-Pipeline-Json-Array",
+    "properties": {
+        "activities": [
+            {
+                "name": "03_DataFlow_JsonArrays",
+                "type": "ExecuteDataFlow",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "dataflow": {
+                        "referenceName": "03_DataFlow_JsonArrays",
+                        "type": "DataFlowReference"
+                    },
+                    "staging": {
+                        "linkedService": {
+                            "referenceName": "azureBlobStorage_LS",
+                            "type": "LinkedServiceReference"
+                        },
+                        "folderPath": "staging"
+                    },
+                    "compute": {
+                        "coreCount": 8,
+                        "computeType": "General"
+                    },
+                    "traceLevel": "Fine"
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2024-07-20T17:10:14Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,25 @@
+source(output(
+		Correlationid as string,
+		Operationname as string,
+		Status as string,
+		Eventcategory as string,
+		Level as string,
+		Time as timestamp,
+		Subscription as string,
+		Eventinitiatedby as string,
+		Resourcetype as string,
+		Resourcegroup as string,
+		Resource as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	ignoreNoFilesFound: false) ~> ActivityLogCSVStream
+ActivityLogCSVStream sink(allowSchemaDrift: true,
+	validateSchema: false,
+	partitionFileNames:['ActivityLog01.json'],
+	umask: 0022,
+	preCommands: [],
+	postCommands: [],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	partitionBy('hash', 1)) ~> ActivityLogJsonSinkStream

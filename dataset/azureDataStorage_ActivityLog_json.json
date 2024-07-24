@@ -1,0 +1,19 @@
+{
+    "name": "azureDataStorage_ActivityLog_json",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorage_LS",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileSystem": "json"
+            }
+        },
+        "schema": {}
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

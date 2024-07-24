@@ -1,0 +1,17 @@
+{
+    "name": "appvm",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "FileServer",
+        "typeProperties": {
+            "host": "C:\\inetpub\\logs\\LogFiles\\W3SVC1",
+            "userId": "appadmin",
+            "encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMTFjYTk2OS1lZjMxLTQ4NjktOGNkMC1mZTcyYTA3ODM2ZGEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+        },
+        "connectVia": {
+            "referenceName": "appvm",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}

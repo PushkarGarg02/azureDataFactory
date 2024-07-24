@@ -1,0 +1,34 @@
+{
+    "name": "azurededicatedSQLPool02_webLogs",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azurededicatedSQLPool02_LS",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlDWTable",
+        "schema": [
+            {
+                "name": "LogDate",
+                "type": "date"
+            },
+            {
+                "name": "IPAddress",
+                "type": "varchar"
+            },
+            {
+                "name": "RequestMethod",
+                "type": "varchar"
+            },
+            {
+                "name": "RequestResource",
+                "type": "varchar"
+            }
+        ],
+        "typeProperties": {
+            "schema": "dbo",
+            "table": "WebLogs"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
