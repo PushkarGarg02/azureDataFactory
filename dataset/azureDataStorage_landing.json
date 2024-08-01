@@ -1,0 +1,23 @@
+{
+	"name": "azureDataStorage_landing",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azureDataLakeStorage_medallianlanding",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "*csv",
+				"fileSystem": "landing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
