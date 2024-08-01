@@ -1,0 +1,19 @@
+{
+	"name": "azuredatastorage_med_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azureDataLakeStorage_medallianlanding",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
